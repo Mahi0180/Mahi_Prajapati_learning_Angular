@@ -8,7 +8,7 @@ import {Component, input, Input} from '@angular/core';
   styleUrl: './noodles-list-item.component.css'
 })
 export class NoodlesListItemComponent {
-  @Input() noodle: { name: string; price: number; } | undefined;
+  @Input() noodle!: { name: string; price: number; }
 
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input, Input} from '@angular/core';
 
 @Component({
   selector: 'app-noodles-list-item',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './noodles-list-item.component.css'
 })
 export class NoodlesListItemComponent {
+  @Input() noodleDetail!: { dish: string, cost: number, details: string };
+
 
 }

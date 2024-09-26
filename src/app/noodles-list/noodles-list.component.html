@@ -1,4 +1,11 @@
-<app-noodles-list-item [noodle]="noodles[0]"></app-noodles-list-item>
-<app-noodles-list-item [noodle]="noodles[1]"></app-noodles-list-item>
-<app-noodles-list-item [noodle]="noodles[2]"></app-noodles-list-item>
-<app-noodles-list-item [noodle]="noodles[3]"></app-noodles-list-item>
+<html>
+<body>
+<h1>Noodles Shop</h1>
+
+<app-noodles-list-item *ngFor="let noodle of noodles" [noodle]="noodle"></app-noodles-list-item>
+
+
+</body>
+</html>
+
+

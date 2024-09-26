@@ -1,5 +1,11 @@
+<html>
+<body>
 <h1>{{title}}</h1>
-<p>{{id}}</p>
-<p>{{firstName}}</p>
-
-
+<div *ngFor="let noodle of noodlesList">
+  <h2>"{{noodle.name}}" is the product from {{noodle.origin}} </h2>
+  <p *ngIf= "noodle.isSpicy">Spicy?: This is Spicy one.</p>
+  <p *ngIf="!noodle.isSpicy">Spicy?: This is not Spicy.</p>
+  <p>Price: ${{noodle.price}}</p>
+</div>
+</body>
+</html>

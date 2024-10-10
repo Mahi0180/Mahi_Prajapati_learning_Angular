@@ -1,0 +1,38 @@
+.Error{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: lightgreen;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Error h1{
+  font-size: 3rem;
+  color: antiquewhite;
+  margin-bottom: 20px;
+}
+
+.Error p{
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.Error a{
+  font-size: 1.2rem;
+  color: blue;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease ,color 0.3s ease;
+
+}
+
+.Error a:hover{
+  background-color: orange;
+  color: white;
+}

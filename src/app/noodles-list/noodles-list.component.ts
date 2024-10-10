@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NoodlesListItemComponent} from "../noodles-list-item/noodles-list-item.component";
 import {NgForOf} from "@angular/common";
+import {Noodles} from "../models/noodles";
+import {NoodleService} from "../services/noodle.service";
 
 @Component({
   selector: 'app-noodles-list',
@@ -12,13 +14,24 @@ import {NgForOf} from "@angular/common";
   templateUrl: './noodles-list.component.html',
   styleUrl: './noodles-list.component.css'
 })
-export class NoodlesListComponents{
-  noodles = [
-    { name:'Ramen', price: 5.00 },
-    { name:'Soba', price: 6.00 },
-    { name:'Udon', price: 7.00},
-    { name:'Spaghetti', price: 4.50}
-  ];
 
 
+export class NoodlesListComponent implements OnInit {
+  displayedColumns :string[] = ["id", "name","price"];
+  noodles :Noodles[] = [];
+
+  constructor(private noodleService : NoodleService) {
+  }
+
+  ngOnInit() {
+    this.noodleService.getnoodles().subscribe({
+      next : (data :Noodles[]) => this.noodles = data,
+      error:err => console.error("Error fetching noodles list", err),
+      complete:() => console.log("Successfully fetching noodles list!")
+    })
+  }
+  selectedNoodles? :Noodles;
+  selectNoodle(noodle : Noodles): void {
+    this.selectedNoodles = noodle;
+  }
 }

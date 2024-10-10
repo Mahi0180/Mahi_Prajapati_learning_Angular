@@ -12,11 +12,12 @@ import {NoodleService} from "../services/noodle.service";
     NgForOf
   ],
   templateUrl: './noodles-list.component.html',
-  styleUrl: './noodles-list.component.css'
+  styleUrls: ['./noodles-list.component.css' ]  // Updated from 'styleUrl' to 'styleUrls'
 })
 
 
-export class NoodlesListComponent implements OnInit {
+
+export class NoodlesListComponents {
   displayedColumns :string[] = ["id", "name","price"];
   noodles :Noodles[] = [];
 
@@ -34,7 +35,4 @@ export class NoodlesListComponent implements OnInit {
   selectNoodle(noodle : Noodles): void {
     this.selectedNoodles = noodle;
   }
-}
-
-export class NoodlesListComponents {
 }

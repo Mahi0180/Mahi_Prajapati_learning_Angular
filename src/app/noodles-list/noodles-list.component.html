@@ -1,10 +1,23 @@
 <html>
 <body>
 <h1>Noodles Shop</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor ="let noodle of noodles">
+    <td>{{noodle.id}}</td>
+    <td>{{noodle.name}}</td>
+    <td>{{noodle.price}}</td>
 
-<app-noodles-list-item *ngFor="let noodle of noodles" [noodle]="noodle"></app-noodles-list-item>
-
-
+  </tr>
+  </tbody>
+</table>
 </body>
 </html>
 

@@ -35,3 +35,6 @@ export class NoodlesListComponent implements OnInit {
     this.selectedNoodles = noodle;
   }
 }
+
+export class NoodlesListComponents {
+}

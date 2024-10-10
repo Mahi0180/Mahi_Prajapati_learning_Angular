@@ -1,5 +1,6 @@
 import {Component, input, Input} from '@angular/core';
 import {NgClass} from "@angular/common";
+import {noodlesList} from "../Data/mock-content";
 
 @Component({
   selector: 'app-noodles-list-item',
@@ -11,7 +12,8 @@ import {NgClass} from "@angular/common";
   styleUrl: './noodles-list-item.component.css'
 })
 export class NoodlesListItemComponent {
-  @Input() noodle!: { name: string; price: number; }
+  @Input() noodle!: { id :number ,name: string; price: number;image :string }
 
 
+  protected readonly noodlesList = noodlesList;
 }

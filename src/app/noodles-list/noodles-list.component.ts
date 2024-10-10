@@ -18,7 +18,7 @@ import {NoodleService} from "../services/noodle.service";
 
 
 export class NoodlesListComponents {
-  displayedColumns :string[] = ["id", "name","price"];
+  displayedColumns :string[] = ["id", "name","price","image"];
   noodles :Noodles[] = [];
 
   constructor(private noodleService : NoodleService) {
@@ -35,4 +35,7 @@ export class NoodlesListComponents {
   selectNoodle(noodle : Noodles): void {
     this.selectedNoodles = noodle;
   }
+}
+
+export class NoodlesListComponent {
 }

@@ -16,8 +16,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./noodles-list.component.css' ]  // Updated from 'styleUrl' to 'styleUrls'
 })
 
-
-
 export class NoodlesListComponents {
   displayedColumns :string[] = ["id", "name","price","image"];
   noodles :Noodles[] = [];

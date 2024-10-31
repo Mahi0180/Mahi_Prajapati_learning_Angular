@@ -1,1 +1,15 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="noodleForm" (ngSubmit)="addOrUpdateNoodle()">
+  <label for="id">ID</label>
+  <input id="id" formControlName="id" type="text">
+  <div *ngIf="noodleForm.controls.id.invalid && noodleForm.controls.id">
+    <small>Invalid ID</small>
+  </div>
+
+  <label for="name">Name</label>
+  <input id="name" formControlName="name" type="text">
+  <div *ngIf="noodleForm.controls.name.invalid && noodleForm.controls.name">
+    <small>Invalid Name</small>
+  </div>
+
+  <button type="submit" [disabled]="noodleForm.invalid">Add/Update Noodle</button>
+</form>

@@ -3,6 +3,7 @@ import {NoodlesListItemComponent} from "../noodles-list-item/noodles-list-item.c
 import {NgForOf} from "@angular/common";
 import {Noodles} from "../models/noodles";
 import {NoodleService} from "../services/noodle.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-noodles-list',
@@ -38,4 +39,17 @@ export class NoodlesListComponents {
 }
 
 export class NoodlesListComponent {
+  // @ts-ignore
+  noodles$ = this.noodleService.noodles$;
+
+  constructor(private noodleService: NoodleService, private router: Router) {}
+
+  deleteNoodle(id: number) {
+    this.noodleService.deleteNoodle(id);
+  }
+
+  editNoodle(noodle: Noodles) {
+    // Navigate to the form component with the selected noodle data
+    this.router.navigate(['/modify-list-item'], { state: { noodle } });
+  }
 }

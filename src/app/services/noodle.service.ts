@@ -17,7 +17,7 @@ export class NoodleService {
     this.noodles.push(newNoodle);
     return of(this.noodles);
   }
-  updateNoodle(updateNoodle: Noodles): Observable<Noodles[]>{
+  editNoodle(updateNoodle: Noodles): Observable<Noodles[]>{
     const index = this.noodles.findIndex(noodlesList => noodlesList.id === updateNoodle.id);
     if(index ==  -1) {
       this.noodles[index] = updateNoodle;

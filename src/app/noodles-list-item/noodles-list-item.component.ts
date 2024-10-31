@@ -16,4 +16,8 @@ export class NoodlesListItemComponent {
 
 
   protected readonly noodlesList = noodlesList;
+
+  editNoodle(noodle: { id: number; name: string; price: number; image: string }) {
+    
+  }
 }

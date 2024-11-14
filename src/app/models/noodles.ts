@@ -4,6 +4,4 @@ export interface Noodles {
   name: string;
   price: number;
   manufactureDate:Date;
-  expiryDate:Date;
-
 }

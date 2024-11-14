@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NoodlesListItemComponent} from "../noodles-list-item/noodles-list-item.component";
-import {NgForOf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgForOf, UpperCasePipe} from "@angular/common";
 import {Noodles} from "../models/noodles";
 import {NoodleService} from "../services/noodle.service";
 import {Router} from "@angular/router";
@@ -10,14 +10,17 @@ import {Router} from "@angular/router";
   standalone: true,
   imports: [
     NoodlesListItemComponent,
-    NgForOf
+    NgForOf,
+    UpperCasePipe,
+    CurrencyPipe,
+    DatePipe
   ],
   templateUrl: './noodles-list.component.html',
   styleUrls: ['./noodles-list.component.css' ]  // Updated from 'styleUrl' to 'styleUrls'
 })
 
 export class NoodlesListComponents {
-  displayedColumns :string[] = ["id", "name","price","image"];
+  displayedColumns :string[] = ["id", "name","price","image","manufactureDate","expiryDate"];
   noodles :Noodles[] = [];
 
   constructor(private noodleService : NoodleService) {

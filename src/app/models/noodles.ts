@@ -3,4 +3,7 @@ export interface Noodles {
   image: string;
   name: string;
   price: number;
+  manufactureDate:Date;
+  expiryDate:Date;
+
 }

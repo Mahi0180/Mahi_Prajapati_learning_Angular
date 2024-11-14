@@ -8,15 +8,18 @@
     <th>Name</th>
     <th>Price</th>
     <th>Images</th>
+    <th>Manufacture Date</th>
+    <th>Expiry Dates</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor ="let noodle of noodles">
     <td>{{noodle.id}}</td>
-    <td>{{noodle.name}}</td>
-    <td>{{noodle.price}}</td>
-    <button (click)= "editNoodle(noodle)"> Edit </button>
-    <button (click)= "deleteNoodle(noodle.id)"> Delete </button>
+    <td>{{noodle.name| uppercase}}</td>
+    <td>{{noodle.price | currency}}</td>
+    <td>{{noodle.manufactureDate | date:'longDate'}}</td>
+    <td>{{noodle.expiryDate | date:'longDate'}}</td>
+
   </tr>
   </tbody>
 </table>

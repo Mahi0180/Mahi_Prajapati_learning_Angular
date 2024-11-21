@@ -1,12 +1,12 @@
 <form [formGroup]="noodleForm" (ngSubmit)="addOrUpdateNoodle()">
   <label for="id">ID</label>
-  <input id="id" formControlName="id" type="text">
+  <input id="id" formControlName="id" type="text" [appHighlightOnFocus]="'pink'">
   <div *ngIf="noodleForm.controls.id.invalid && noodleForm.controls.id">
     <small>Invalid ID</small>
   </div>
 
   <label for="name">Name</label>
-  <input id="name" formControlName="name" type="text">
+  <input id="name" formControlName="name" type="text" [appHighlightOnFocus]="'lightgreen'">
   <div *ngIf="noodleForm.controls.name.invalid && noodleForm.controls.name">
     <small>Invalid Name</small>
   </div>

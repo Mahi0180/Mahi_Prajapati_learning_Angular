@@ -2,12 +2,14 @@ import { Component ,OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NoodleService} from "../services/noodle.service";
 import{Noodles} from '../models/noodles';
+import {HighlightOnFocusDirective} from "../highlight-on-focus.directive";
 @Component({
   selector: 'app-modify-list-item',
   templateUrl: './modify-list-item.component.html',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighlightOnFocusDirective
   ],
   styleUrls: ['./modify-list-item.component.css']
 })

@@ -13,13 +13,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor ="let noodle of noodles">
+  <tr *ngFor ="let noodle of noodles" [appHoverHighlight]="'yellow'">
     <td>{{noodle.id}}</td>
     <td>{{noodle.name| uppercase}}</td>
     <td>{{noodle.price | currency}}</td>
-    <td>{{noodle.manufactureDate | date:'longDate'}}</td>
-
   </tr>
+  <button [appHoverHighlight]="'lightgreen'">Hover me</button>
   </tbody>
 </table>
 </body>

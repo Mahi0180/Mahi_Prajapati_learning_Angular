@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {NoodlesListItemComponent} from "../noodles-list-item/noodles-list-item.component";
 import {CurrencyPipe, DatePipe, NgForOf, UpperCasePipe} from "@angular/common";
 import {Noodles} from "../models/noodles";
 import {NoodleService} from "../services/noodle.service";
 import {Router} from "@angular/router";
+import {HoverHighlightDirective} from "../hover-highlight.directive";
 
 @Component({
   selector: 'app-noodles-list',
@@ -13,7 +14,8 @@ import {Router} from "@angular/router";
     NgForOf,
     UpperCasePipe,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
+    HoverHighlightDirective
   ],
   templateUrl: './noodles-list.component.html',
   styleUrls: ['./noodles-list.component.css' ]  // Updated from 'styleUrl' to 'styleUrls'
@@ -37,6 +39,8 @@ export class NoodlesListComponents {
   selectNoodle(noodle : Noodles): void {
     this.selectedNoodles = noodle;
   }
+
+  protected readonly HostListener = HostListener;
 }
 
 export class NoodlesListComponent {

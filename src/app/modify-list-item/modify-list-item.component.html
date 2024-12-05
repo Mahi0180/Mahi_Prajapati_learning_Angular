@@ -1,15 +1,30 @@
-<form [formGroup]="noodleForm" (ngSubmit)="addOrUpdateNoodle()">
-  <label for="id">ID</label>
-  <input id="id" formControlName="id" type="text" [appHighlightOnFocus]="'pink'">
-  <div *ngIf="noodleForm.controls.id.invalid && noodleForm.controls.id">
-    <small>Invalid ID</small>
-  </div>
+<mat-card class="modify-noodle-card">
+  <mat-card-header>
+    <mat-card-title>Edit Noodle</mat-card-title>
+  </mat-card-header>
 
-  <label for="name">Name</label>
-  <input id="name" formControlName="name" type="text" [appHighlightOnFocus]="'lightgreen'">
-  <div *ngIf="noodleForm.controls.name.invalid && noodleForm.controls.name">
-    <small>Invalid Name</small>
-  </div>
+  <form [formGroup]="noodleForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Noodle Name">
+      <mat-error *ngIf="noodleForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
 
-  <button type="submit" [disabled]="noodleForm.invalid">Add/Update Noodle</button>
-</form>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" placeholder="Price" type="number">
+      <mat-error *ngIf="noodleForm.get('price')?.hasError('required')">Price is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image" placeholder="Image URL">
+      <mat-error *ngIf="noodleForm.get('image')?.hasError('required')">Image is required</mat-error>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="noodleForm.invalid">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="router.navigate(['/noodles-list'])">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

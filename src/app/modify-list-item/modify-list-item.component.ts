@@ -1,46 +1,27 @@
-import { Component ,OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NoodleService} from "../services/noodle.service";
-import{Noodles} from '../models/noodles';
-import {HighlightOnFocusDirective} from "../highlight-on-focus.directive";
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-modify-list-item',
   templateUrl: './modify-list-item.component.html',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    HighlightOnFocusDirective
-  ],
   styleUrls: ['./modify-list-item.component.css']
 })
-export class ModifyListItemComponent implements OnInit {
+export class ModifyListItemComponent {
   noodleForm: FormGroup;
-  private currentNoodle: any;
 
-  constructor(private fb: FormBuilder,private noodleService: NoodleService) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.noodleForm = this.fb.group({
-      id:['',[Validators.required,  Validators.pattern("^[0-9]*$")]],
-      name:['',[Validators.required,  Validators.pattern("^[a-zA-Z0-9]*$")]],
+      name: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      image: ['', [Validators.required]]
     });
   }
 
-  ngOnInit(): void {
-    const state = window.history.state;
-    if (state && state.noodle) {
-      this.currentNoodle = state.noodle;
-      this.noodleForm.patchValue(this.currentNoodle);
+  onSubmit() {
+    if (this.noodleForm.valid) {
+      console.log(this.noodleForm.value);
+      // Submit logic here
     }
-  }
-
-  addOrUpdateNoodle() {
-    const noodle: Noodles = this.noodleForm.value;
-    if (this.currentNoodle) {
-      // Update existing noodle
-      this.noodleService.editNoodle(noodle);
-    } else {
-      // Add new noodle
-      this.noodleService.addnoodle(noodle);
-    }
-    this.noodleForm.reset();
   }
 }

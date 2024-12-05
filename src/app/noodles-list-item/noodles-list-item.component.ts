@@ -1,24 +1,11 @@
-import {Component, input, Input} from '@angular/core';
-import {NgClass, NgForOf} from "@angular/common";
-import {noodlesList} from "../Data/mock-content";
+import { Component, Input } from '@angular/core';
+import { Noodles } from '../models/noodles';
 
 @Component({
   selector: 'app-noodles-list-item',
-  standalone: true,
-  imports: [
-    NgClass,
-    NgForOf
-  ],
   templateUrl: './noodles-list-item.component.html',
-  styleUrl: './noodles-list-item.component.css'
+  styleUrls: ['./noodles-list-item.component.css']
 })
 export class NoodlesListItemComponent {
-  @Input() noodle!: { id :number ,name: string; price: number;image :string }
-
-
-  protected readonly noodlesList = noodlesList;
-
-  editNoodle(noodle: { id: number; name: string; price: number; image: string }) {
-
-  }
+  @Input() noodle!: Noodles;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { Noodles } from '../models/noodles';
 import { NoodleService } from '../services/noodle.service';
@@ -8,6 +8,7 @@ import {CurrencyPipe, UpperCasePipe} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {noodlesList} from "../Data/mock-content";
 import {NoodlesListItemComponent} from "../noodles-list-item/noodles-list-item.component";
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-noodles-list',
@@ -27,12 +28,16 @@ export class NoodlesListComponents implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'price', 'image', 'actions'];
   dataSource = new MatTableDataSource<Noodles>();
 
+  @ViewChild(MatSort) sort!: MatSort;
   constructor(private noodleService: NoodleService, private router: Router) {}
 
   ngOnInit() {
     this.noodleService.getnoodles().subscribe({
-      next: (data: Noodles[]) => this.dataSource.data = data,
-      error: err => console.error('Error fetching noodles list', err),
+      next: (data: Noodles[]) => {
+        this.dataSource.data = data;
+        this.dataSource.sort = this.sort; // Added sorting functionality
+      },
+      error: err => console.error('Error fetching noodles list:', err),
       complete: () => console.log('Successfully fetched noodles list!')
     });
   }

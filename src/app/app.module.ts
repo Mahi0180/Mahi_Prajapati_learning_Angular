@@ -9,13 +9,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 import { AppComponent } from './app.component';
 import { NoodlesListComponents } from './noodles-list/noodles-list.component';
 import { NoodlesListItemComponent } from './noodles-list-item/noodles-list-item.component';
 import { ModifyListItemComponent } from './modify-list-item/modify-list-item.component';
+import {HighlightOnFocusDirective} from "./highlight-on-focus.directive";
 
 @NgModule({
-  declarations: [AppComponent, NoodlesListComponents, NoodlesListItemComponent, ModifyListItemComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -26,8 +28,15 @@ import { ModifyListItemComponent } from './modify-list-item/modify-list-item.com
     MatCardModule,
     MatTooltipModule,
     MatDialogModule,
+    AppComponent,
+    HighlightOnFocusDirective,
+    ModifyListItemComponent,
+    NoodlesListComponents,
+    NoodlesListItemComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    NoodlesListComponents
+  ],
 })
 export class AppModule {}

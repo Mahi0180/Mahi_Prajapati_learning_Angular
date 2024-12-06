@@ -1,21 +1,11 @@
-body{
-  font-family: Calibri;
-  background-color: lightcyan;
+.spacer {
+  flex: 1 1 auto;
 }
 
-h1{
-  text-align: center;
-  font-family: Impact;
-  font-size: xxx-large;
+.example-form {
+  margin: 20px;
 }
 
-div{
-  border: 1px solid black;
-  background-color: lightseagreen;
+mat-card {
   padding: 20px;
-  margin: 10px;
-}
-
-div:hover{
-  background-color: lightgreen;
 }

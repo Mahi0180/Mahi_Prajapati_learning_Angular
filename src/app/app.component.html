@@ -1,35 +1,11 @@
-<nav>
-  <ul>
-    <li><a routerLink="/noodles-list">Home</a></li>
-    <li><a routerLink ="/modify-list-item">Modify List Item</a></li>
+<!-- Nav Bar using Material Design -->
+<mat-toolbar color="primary">
+  <span>My Noodles App</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/noodles-list">Home</button>
+  <button mat-button routerLink="/modify-list-item">Modify List Item</button>
+</mat-toolbar>
 
-  </ul>
-</nav>
-
-<form>
-  <h2>Fill out the form:</h2>
-  <label for ="name">Name:</label>
-  <input
-  type="text"
-  id="name"
-  placeholder="Enter your name"
-  [appHighlightOnFocus]="'lightgreen'" />
-
-  <label for ="email">Email:</label>
-  <input
-    type="email"
-    id="email"
-    placeholder="Enter your email"
-    [appHighlightOnFocus]="'lighblue'" />
-
-  <label for ="password">Password:</label>
-  <input
-  type="password"
-  id="password"
-  placeholder="Enter your password"
-  [appHighlightOnFocus]="'pink'"/>
-</form>
-
-
+<!-- Router Outlet -->
 <router-outlet></router-outlet>
-<app-noodles-list></app-noodles-list>
+
